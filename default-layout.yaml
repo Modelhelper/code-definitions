@@ -1,0 +1,63 @@
+# use this layout when defining a new language file
+# naming conventions
+
+# mandatory
+version: 3.0
+
+# mandatory
+language: cs # must be the same as template e.g cs, go, java (normally this should be the language file extension e.g startup.cs )
+
+# optional default value is false
+usesNamespace: true
+
+# optional default value is false
+canInject: true
+
+# optional default value is empty
+moduleLevelVariablePrefix: "_"
+
+# optional default value is empty
+defaultImports: 
+  - "using System;"
+
+# The key dictionary is used as a default mapping if a project definition is not provided
+# This mapping is also used as starting point when creating a new project
+# optional default value is empty
+keys:
+  keyname:
+    postfix: Repository
+    prefix: I  
+    namespace: "{{ .Code.RootNamespace }}.Extensions"
+    inject:
+      - logging
+    imports: [
+      "using {{ .Code.RootNamespace }}.Extensions"
+    ]
+
+# In some OO languages and web concepts it is possible to inject services, classes etc (C#, Java)
+# This maps a default injection pattern that can be used in the model that is injected to the
+# template generation process
+inject:  
+  logging:
+    name: ILogger<{{ .Name }}>
+    propertyName: logger
+    imports: [
+      "using Microsoft.Logging"
+    ]
+
+## maps datatype to language type
+## can be a mix of mssql, postgres, mysql etc
+## the key in this map is the sources datatype 
+## e.g for a mssql or postgres the key could be varchar
+# This mapping is required for templates that uses the datatype pipeline
+datatypes: 
+  string: 
+    # required
+    notNull: string
+    # required
+    nullable: string
+    # optional
+    nullableAlternative: string
+
+    # optional
+    defaultValue: String.Empty    
