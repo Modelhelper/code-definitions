@@ -1,0 +1,5 @@
+﻿language: go # must be the same as template e.g cs, go, java (normally this should be the language file extension e.g startup.cs )
+version: 3.0
+
+usesNamespace: false
+canInject: false
