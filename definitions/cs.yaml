@@ -101,9 +101,9 @@ datatypes:
     nullable: decimal?
     nullableAlternative: nullable<decimal> # decimal
   float: 
-    notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # decimal
+    notNull: float
+    nullable: float?
+    nullableAlternative: nullable<float> # decimal
   geography: 
     notNull: string
     nullable: string
@@ -117,9 +117,9 @@ datatypes:
     nullable: string
     nullableAlternative: nullable<decimal> # string
   int: 
-    notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # int
+    notNull: int
+    nullable: int?
+    nullableAlternative: nullable<int> # int
   money: 
     notNull: string
     nullable: string
@@ -133,8 +133,8 @@ datatypes:
     nullable: string
     nullableAlternative: nullable<decimal> # string
   numeric: 
-    notNull: string
-    nullable: string
+    notNull: decimal
+    nullable: decimal?
     nullableAlternative: nullable<decimal> # decimal
   nvarchar: 
     notNull: string
@@ -145,16 +145,16 @@ datatypes:
     nullable: decimal?
     nullableAlternative: nullable<decimal> # decimal
   smalldatetime: 
-    notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # decimal
+    notNull: DateTimeOffset
+    nullable: DateTimeOffset?
+    nullableAlternative: nullable<DateTimeOffset> # decimal
   smallint: 
-    notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # decimal
+    notNull: Int16
+    nullable: Int16?
+    nullableAlternative: nullable<Int16> # decimal
   smallmoney: 
-    notNull: string
-    nullable: string
+    notNull: decimal
+    nullable: decimal
     nullableAlternative: nullable<decimal> # decimal
   text: 
     notNull: string
