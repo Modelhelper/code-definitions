@@ -44,26 +44,26 @@ datatypes:
     nullable: sql.NullBool
     defaultValue: false
   char: 
-    notNull: string
-    nullable: string    
+    notNull: char
+    nullable: sql.NullChar    
   date: 
-    notNull: DateTimeOffset
-    nullable: DateTimeOffset?    
+    notNull: time.Time
+    nullable: sql.NullTime    
   datetime: 
-    notNull: DateTimeOffset
-    nullable: DateTimeOffset?    
+    notNull: time.Time
+    nullable: sql.NullTime    
   datetime2: 
-    notNull: DateTimeOffset
-    nullable: DateTimeOffset?    
+    notNull: time.Time
+    nullable: sql.NullTime    
   datetimeoffset: 
-    notNull: DateTimeOffset
-    nullable: DateTimeOffset?    
+    notNull: time.Time
+    nullable: sql.NullTime    
   decimal: 
     notNull: decimal
-    nullable: decimal?    
+    nullable: sql.NullDecimal
   float: 
-    notNull: string
-    nullable: string    
+    notNull: float
+    nullable: sql.NullFloat    
   geography: 
     notNull: string
     nullable: string    
@@ -77,17 +77,17 @@ datatypes:
     notNull: int
     nullable: sql.IntNullable    
   money: 
-    notNull: string
-    nullable: string    
+    notNull: decimal
+    nullable: sql.NullDecimal    
   nchar: 
     notNull: string
-    nullable: string    
+    nullable: sql.NullString    
   ntext: 
     notNull: string
-    nullable: string    
+    nullable: sql.NullString    
   numeric: 
-    notNull: string
-    nullable: string    
+    notNull: decimal
+    nullable: sql.NullDecimal    
   nvarchar: 
     notNull: string
     nullable: sql.NullString     
@@ -95,11 +95,11 @@ datatypes:
     notNull: decimal
     nullable: decimal?    
   smalldatetime: 
-    notNull: string
-    nullable: string    
+    notNull: time.Time
+    nullable: sql.NullTime    
   smallint: 
-    notNull: string
-    nullable: string    
+    notNull: Int8
+    nullable: sql.NullInt8
   smallmoney: 
     notNull: string
     nullable: string    
@@ -107,8 +107,8 @@ datatypes:
     notNull: string
     nullable: sql.NullString     
   time: 
-    notNull: string
-    nullable: string    
+    notNull: time.Time
+    nullable: sql.NullTime    
   timestamp: 
     notNull: string
     nullable: string    
@@ -116,8 +116,8 @@ datatypes:
     notNull: Int16
     nullable: Int16?    
   uniqueidentifier: 
-    notNull: Guid
-    nullable: Guid    
+    notNull: string
+    nullable: sql.NullString   
   varbinary: 
     notNull: Byte[]
     nullable: Byte[]    
@@ -125,5 +125,5 @@ datatypes:
     notNull: string
     nullable: sql.NullString     
   xml: 
-    notNull: XElement
-    nullable: XElement?    
+    notNull: string
+    nullable: sql.NullString    
