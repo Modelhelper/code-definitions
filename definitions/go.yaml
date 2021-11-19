@@ -3,23 +3,38 @@ version: 3.0
 
 short: Language defintion for Go (Golang from Google)
 description: |
-  The go language definition defines a setup with datatypes and a common set of keys
+  The go language definition defines a setup with datatypes and a common 
+  set of keys
 
-  The tooling in go will set correct imports, so there is no need to define a set of default imports in this file.
+  The tooling in go will set correct imports, so there is no need to 
+  define a set of default imports in this file.
 
-  In go it is possible to use two different methods of making a property nullable (in this lang def you can use either nullable or nullableAlternative). 
-  This can be mapped in the config or project by specifing the property 'use
+  In go it is possible to use two different methods of making a property 
+  nullable (in this lang def you can use either nullable or nullableAlternative). 
+  This can be mapped in the config or project by specifing the property use
   
-  This definition also uses a set of keys that is common in a go project e.g struct, interface, resolver etc. These keys is used in the templates to get
-  a proper namespace, prefix and/or postfix. The key is also used in a project file to export the template to a proper location.
+  This definition also uses a set of keys that is common in a go project 
+  e.g struct, interface, resolver etc. These keys is used in the templates 
+  to get a proper namespace, prefix and/or postfix. The key is also used 
+  in a project file to export the template to a proper location.
 
-  Nullability in go can be tricky, If you think something won’t be null, but you’re wrong, your program will crash, perhaps rarely enough that you won’t catch errors before you ship them.
-  nullable types in go from a database could be handled by the sql- package. (There is no official alternative way to describe a nullable type, so the nullableAlternative is omitted)
-  a NULL value is different from 0, NULL != 0, and NULL can have a meaning, escpessiallyu if int is used as a foreign key and the value is NULL, this means that there is no connection between
-  this data row and the parent or child table that is referenceden.
+  Nullability in go can be tricky, If you think something won’t be null, 
+  but you’re wrong, your program will crash, perhaps rarely enough that 
+  you won’t catch errors before you ship them.
+  Nullable types in go from a database could be handled by the sql- package. 
+  (There is no official alternative way to describe a nullable type, 
+  so the nullableAlternative is omitted)
+  a NULL value is different from 0, NULL != 0, and NULL can have a meaning, 
+  escpessiallyu if int is used as a foreign key and the value is NULL, 
+  this means that there is no connection between this data row and 
+  the parent or child table that is referenceden.
 
-  If handling null is of no interest it is possible to set the "disableNullableTypes" for the current project to true. This will use the COALESCE method in sql to get the default value instead of NULL.
-  if 'disableNullableTypes' is set to true, modelhelper will interpret every column as 'IsNullable=true' and therefor use the notNull value of the datatype mapping
+  If handling null is of no interest it is possible to set the "disableNullableTypes" 
+  for the current project to true. This will use the COALESCE method 
+  in sql to get the default value instead of NULL.
+  If 'disableNullableTypes' is set to true, modelhelper will interpret 
+  every column as 'IsNullable=true' and therefor use the notNull 
+  value of the datatype mapping
   
 
 usesNamespace: false

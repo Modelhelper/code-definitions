@@ -3,12 +3,19 @@ version: 3.0
 
 short: Language defintion for Microsoft CSharp (C#)
 description: |
-  The cs (Microsoft C#) language definition defines a setup with datatypes default imports (imports you normally add to code), 
-  In C# it is possible to use two different methods of making a property nullable (in this lang def you can use either nullable or nullableAlternativ). 
-  This can be mapped in the config or project by specifing the property 'useNullableAlternative' in the code section to true or false - default value is false (empty == false)
+  The cs (Microsoft C#) language definition defines a setup with datatypes 
+  default imports (imports you normally add to code).
+   
+  In C# it is possible to use two different methods of making a property 
+  nullable (in this lang def you can use either nullable or nullableAlternativ). 
+  This can be mapped in the config or project by specifing the property 
+  'useNullableAlternative' in the code section to true or false - default 
+  value is false (empty == false)
   
-  This definition also uses a set of keys that is common in a C# project e.g model, interface, resolver etc. These keys is used in the templates to get
-  a proper namespace, prefix and/or postfix. The key is also used in a project file to export the template to a proper location.
+  This definition also uses a set of keys that is common in a C# project 
+  e.g model, interface, resolver etc. These keys is used in the templates 
+  to get a proper namespace, prefix and/or postfix. The key is also 
+  used in a project file to export the template to a proper location.
 
   In C# (or .Net) it is possible to inject code in a constructor or method. 
 
