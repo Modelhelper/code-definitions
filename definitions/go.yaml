@@ -90,7 +90,7 @@ datatypes:
     nullable: string    
   int: 
     notNull: int
-    nullable: sql.IntNullable    
+    nullable: sql.NullInt32    
   money: 
     notNull: decimal
     nullable: sql.NullDecimal    
