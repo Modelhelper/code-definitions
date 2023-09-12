@@ -85,8 +85,8 @@ datatypes:
     nullableAlternative: nullable<bool> # bool
   char: 
     notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # char
+    nullable: string?
+    nullableAlternative: nullable<string> # char
   date: 
     notNull: DateTimeOffset
     nullable: DateTimeOffset?
@@ -133,20 +133,20 @@ datatypes:
     nullableAlternative: nullable<decimal> # decimal
   nchar: 
     notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # string
+    nullable: string?
+    nullableAlternative: nullable<string> # string
   ntext: 
     notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # string
+    nullable: string?
+    nullableAlternative: nullable<string> # string
   numeric: 
     notNull: decimal
     nullable: decimal?
     nullableAlternative: nullable<decimal> # decimal
   nvarchar: 
     notNull: string
-    nullable: string
-    nullableAlternative: nullable<decimal> # string
+    nullable: string?
+    nullableAlternative: nullable<string> # string
   real: 
     notNull: decimal
     nullable: decimal?
@@ -189,7 +189,7 @@ datatypes:
     nullableAlternative: Byte[] # Byte[]
   varchar: 
     notNull: string
-    nullable: string
+    nullable: string?
     nullableAlternative: string
   xml: 
     notNull: XElement
