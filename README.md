@@ -13,7 +13,7 @@ Language definitions for the [ModelHelper CLI](https://github.com/Modelhelper/cl
 | SQL | `definitions/sql.yaml` | For the SQL templates |
 | C++ | `definitions/cpp.yaml` | A starting point, the types are not checked |
 
-The type names in the files are database types. The Dart, Rust and proto files cover the SQL Server names (`varchar`, `bigint`, `datetime2`, `uniqueidentifier`) and the PostgreSQL names (`int4`, `int8`, `bool`, `timestamptz`, `uuid`, `bytea`, `jsonb` and so on). The other files cover the SQL Server names only, so a PostgreSQL type such as `int4` is printed as it is for them.
+The type names in the files are database types. Every file for a programming language covers the SQL Server names (`varchar`, `bigint`, `datetime2`, `uniqueidentifier`) and the PostgreSQL names (`int4`, `int8`, `bool`, `timestamptz`, `uuid`, `bytea`, `jsonb` and so on). A type that is in neither is printed as it is. `cpp` and `sql` have the SQL Server names only.
 
 One name means different things in the two databases: `timestamp` is a row version (bytes) in SQL Server and a date and time in PostgreSQL. The files follow SQL Server.
 
@@ -86,12 +86,38 @@ A database type that is not in `datatypes` is printed as it is.
 
 Quote values that start with `[`, `{`, `*` or `&`, YAML reads them as something else: `notNull: "[]byte"`.
 
+## Imports and reserved words in templates
+
+Add `imports` to a type when its Go, Dart or proto type needs an import, and `nullableImports` when only the nullable form does:
+
+```yaml
+datetime:
+  notNull: time.Time
+  nullable: sql.NullTime
+  imports: [time]                  # time.Time needs "time"
+  nullableImports: [database/sql]  # sql.NullTime needs "database/sql"
+```
+
+A template then lists exactly the imports its columns need:
+
+```
+import (
+{{- range imports .Columns }}
+  "{{ . }}"
+{{- end }}
+)
+```
+
+`reservedWords` is a list of names that are not allowed. The `safe` function adds an underscore to them, so a column called `type` becomes the field `type_`. Use it after the casing: `{{ .Name | camel | safe }}`.
+
 ## What `mh` uses today
 
 | Property | Effect |
 |----------|--------|
 | `language`, `version`, `short`, `description` | Shown by `mh language list` |
 | `datatypes` with `notNull` and `nullable` | **Used.** This is what the `datatype` and `nullable` template functions read |
+| `datatypes` with `imports` and `nullableImports` | **Used** by the `imports` template function: what a column's type needs to be imported, for its not-null and nullable form |
+| `reservedWords` | **Used** by the `safe` template function: words that can not be used as a name |
 | `datatypes` with `defaultValue` and `nullableAlternative` | Read, but no template uses them yet |
 | `keys`, `inject`, `defaultImports`, `global` | Counted by `mh language list`. Namespace, prefix, postfix and inject for generated code come from the project's `.modelhelper/config.yaml` |
 | `usesNamespace`, `canInject`, `moduleLevelVariablePrefix` | Not read |
