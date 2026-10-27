@@ -194,4 +194,47 @@ datatypes:
   xml: 
     notNull: XElement
     nullable: XElement?
-    nullableAlternative: nullable<XElement> 
+    nullableAlternative: nullable<XElement>
+  # PostgreSQL type names (text, varchar, date, numeric and the like are shared)
+  int2:
+    notNull: Int16
+    nullable: Int16?
+  int4:
+    notNull: int
+    nullable: int?
+  int8:
+    notNull: Int64
+    nullable: Int64?
+  float4:
+    notNull: float
+    nullable: float?
+  float8:
+    notNull: double
+    nullable: double?
+  bool:
+    notNull: bool
+    nullable: bool?
+  bpchar:
+    notNull: string
+    nullable: string?
+  timestamptz:
+    notNull: DateTimeOffset
+    nullable: DateTimeOffset?
+  timetz:
+    notNull: string
+    nullable: string
+  uuid:
+    notNull: Guid
+    nullable: Guid?
+  bytea:
+    notNull: Byte[]
+    nullable: Byte[]
+  json:
+    notNull: string
+    nullable: string?
+  jsonb:
+    notNull: string
+    nullable: string?
+
+# Words that can not be used as a name. The 'safe' template function adds an underscore to them
+reservedWords: [abstract, as, base, bool, break, byte, case, catch, char, checked, class, const, continue, decimal, default, delegate, do, double, else, enum, event, explicit, extern, false, finally, fixed, float, for, foreach, goto, if, implicit, in, int, interface, internal, is, lock, long, namespace, new, null, object, operator, out, override, params, private, protected, public, readonly, ref, return, sbyte, sealed, short, sizeof, stackalloc, static, string, struct, switch, this, throw, true, try, typeof, uint, ulong, unchecked, unsafe, ushort, using, virtual, void, volatile, while]

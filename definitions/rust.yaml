@@ -154,3 +154,6 @@ datatypes:
   jsonb:
     notNull: serde_json::Value
     nullable: Option<serde_json::Value>
+
+# Words that can not be used as a name. The 'safe' template function adds an underscore to them
+reservedWords: [as, break, const, continue, crate, else, enum, extern, false, fn, for, if, impl, in, let, loop, match, mod, move, mut, pub, ref, return, self, Self, static, struct, super, trait, true, type, unsafe, use, where, while, async, await, dyn, abstract, become, box, do, final, macro, override, priv, typeof, unsized, virtual, yield, try]

@@ -40,115 +40,196 @@ description: |
 usesNamespace: false
 canInject: false
 
+# Words that can not be used as a name. The 'safe' template function adds an underscore to them
+reservedWords: [break, default, func, interface, select, case, defer, go, map, struct, chan, else, goto, package, switch, const, fallthrough, if, range, type, continue, for, import, return, var]
+
 datatypes:
-  # Only the Go standard library is used, so no extra imports are needed.
+  # Only the Go standard library is used.
   # decimal, numeric and money map to float64, which can round money values.
   # Change them to string or a decimal package if you need exact amounts.
+  # imports / nullableImports are read by the 'imports' template function.
+  # SQL Server type names
   string:
     notNull: string
     nullable: sql.NullString
-    defaultValue: ""
+    nullableImports: [database/sql]
   bigint:
     notNull: int64
     nullable: sql.NullInt64
-    defaultValue: 0
+    nullableImports: [database/sql]
   binary:
     notNull: "[]byte"
     nullable: "[]byte"
   bit:
     notNull: bool
     nullable: sql.NullBool
-    defaultValue: false
+    nullableImports: [database/sql]
   char:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   date:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   datetime:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   datetime2:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   datetimeoffset:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   decimal:
     notNull: float64
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   float:
     notNull: float64
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   geography:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   geometry:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   image:
     notNull: "[]byte"
     nullable: "[]byte"
   int:
     notNull: int
     nullable: sql.NullInt32
-    defaultValue: 0
+    nullableImports: [database/sql]
   money:
     notNull: float64
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   nchar:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   ntext:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   numeric:
     notNull: float64
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   nvarchar:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   real:
     notNull: float32
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   smalldatetime:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   smallint:
     notNull: int16
     nullable: sql.NullInt16
-    defaultValue: 0
+    nullableImports: [database/sql]
   smallmoney:
     notNull: float64
     nullable: sql.NullFloat64
-    defaultValue: 0
+    nullableImports: [database/sql]
   text:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   time:
     notNull: time.Time
     nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
   timestamp:
     notNull: "[]byte"
     nullable: "[]byte"
   tinyint:
     notNull: uint8
     nullable: sql.NullByte
-    defaultValue: 0
+    nullableImports: [database/sql]
   uniqueidentifier:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   varbinary:
     notNull: "[]byte"
     nullable: "[]byte"
   varchar:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
   xml:
     notNull: string
     nullable: sql.NullString
+    nullableImports: [database/sql]
+  # PostgreSQL type names (text, varchar, date, numeric and the like are shared)
+  int2:
+    notNull: int16
+    nullable: sql.NullInt16
+    nullableImports: [database/sql]
+  int4:
+    notNull: int
+    nullable: sql.NullInt32
+    nullableImports: [database/sql]
+  int8:
+    notNull: int64
+    nullable: sql.NullInt64
+    nullableImports: [database/sql]
+  float4:
+    notNull: float32
+    nullable: sql.NullFloat64
+    nullableImports: [database/sql]
+  float8:
+    notNull: float64
+    nullable: sql.NullFloat64
+    nullableImports: [database/sql]
+  bool:
+    notNull: bool
+    nullable: sql.NullBool
+    nullableImports: [database/sql]
+  bpchar:
+    notNull: string
+    nullable: sql.NullString
+    nullableImports: [database/sql]
+  timestamptz:
+    notNull: time.Time
+    nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
+  timetz:
+    notNull: time.Time
+    nullable: sql.NullTime
+    imports: [time]
+    nullableImports: [database/sql]
+  uuid:
+    notNull: string
+    nullable: sql.NullString
+    nullableImports: [database/sql]
+  bytea:
+    notNull: "[]byte"
+    nullable: "[]byte"
+  json:
+    notNull: string
+    nullable: sql.NullString
+    nullableImports: [database/sql]
+  jsonb:
+    notNull: string
+    nullable: sql.NullString
+    nullableImports: [database/sql]

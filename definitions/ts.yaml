@@ -180,4 +180,47 @@ datatypes:
   xml: 
     notNull: string
     nullable: string
-    nullableAlternative: string 
+    nullableAlternative: string
+  # PostgreSQL type names (text, varchar, date, numeric and the like are shared)
+  int2:
+    notNull: number
+    nullable: number
+  int4:
+    notNull: number
+    nullable: number
+  int8:
+    notNull: number
+    nullable: number
+  float4:
+    notNull: number
+    nullable: number
+  float8:
+    notNull: number
+    nullable: number
+  bool:
+    notNull: boolean
+    nullable: boolean
+  bpchar:
+    notNull: string
+    nullable: string
+  timestamptz:
+    notNull: Date
+    nullable: Date
+  timetz:
+    notNull: string
+    nullable: string
+  uuid:
+    notNull: string
+    nullable: string
+  bytea:
+    notNull: Uint8Array
+    nullable: Uint8Array
+  json:
+    notNull: string
+    nullable: string
+  jsonb:
+    notNull: string
+    nullable: string
+
+# Words that can not be used as a name. The 'safe' template function adds an underscore to them
+reservedWords: [break, case, catch, class, const, continue, debugger, default, delete, do, else, enum, export, extends, false, finally, for, function, if, import, in, instanceof, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, let, static, yield, implements, interface, package, private, protected, public, await]

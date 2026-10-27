@@ -35,15 +35,23 @@ datatypes:
   date:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   datetime:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   datetime2:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   datetimeoffset:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   decimal:
     notNull: string
     nullable: optional string
@@ -83,6 +91,8 @@ datatypes:
   smalldatetime:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   smallint:
     notNull: int32
     nullable: optional int32
@@ -138,6 +148,8 @@ datatypes:
   timestamptz:
     notNull: google.protobuf.Timestamp
     nullable: optional google.protobuf.Timestamp
+    imports: ['google/protobuf/timestamp.proto']
+    nullableImports: ['google/protobuf/timestamp.proto']
   timetz:
     notNull: string
     nullable: optional string

@@ -23,6 +23,8 @@ datatypes:
   binary:
     notNull: Uint8List
     nullable: Uint8List?
+    imports: ['dart:typed_data']
+    nullableImports: ['dart:typed_data']
   bit:
     notNull: bool
     nullable: bool?
@@ -56,6 +58,8 @@ datatypes:
   image:
     notNull: Uint8List
     nullable: Uint8List?
+    imports: ['dart:typed_data']
+    nullableImports: ['dart:typed_data']
   int:
     notNull: int
     nullable: int?
@@ -95,6 +99,8 @@ datatypes:
   timestamp:
     notNull: Uint8List
     nullable: Uint8List?
+    imports: ['dart:typed_data']
+    nullableImports: ['dart:typed_data']
   tinyint:
     notNull: int
     nullable: int?
@@ -104,6 +110,8 @@ datatypes:
   varbinary:
     notNull: Uint8List
     nullable: Uint8List?
+    imports: ['dart:typed_data']
+    nullableImports: ['dart:typed_data']
   varchar:
     notNull: String
     nullable: String?
@@ -144,9 +152,14 @@ datatypes:
   bytea:
     notNull: Uint8List
     nullable: Uint8List?
+    imports: ['dart:typed_data']
+    nullableImports: ['dart:typed_data']
   json:
     notNull: String
     nullable: String?
   jsonb:
     notNull: String
     nullable: String?
+
+# Words that can not be used as a name. The 'safe' template function adds an underscore to them
+reservedWords: [assert, break, case, catch, class, const, continue, default, do, else, enum, extends, false, final, finally, for, if, in, is, new, null, rethrow, return, super, switch, this, throw, true, try, var, void, while, with]
