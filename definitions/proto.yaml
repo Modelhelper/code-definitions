@@ -1,0 +1,155 @@
+language: proto
+version: 3.0
+
+short: Language definition for Protocol Buffers (proto3)
+description: |
+  Protocol Buffers (proto3) types for database columns.
+
+  A nullable column becomes an optional field: a template that writes
+    {{ nullable true .DataType }} name = 1;
+  gets "optional int32 name = 1;".
+
+  Dates and times are google.protobuf.Timestamp, so add
+    import "google/protobuf/timestamp.proto";
+  to the generated file. proto3 has no 16 bit integer, so smallint and tinyint are
+  int32. It has no decimal either: decimal, numeric and money are strings, which
+  keeps the exact value.
+
+datatypes:
+  # SQL Server type names
+  string:
+    notNull: string
+    nullable: optional string
+  bigint:
+    notNull: int64
+    nullable: optional int64
+  binary:
+    notNull: bytes
+    nullable: optional bytes
+  bit:
+    notNull: bool
+    nullable: optional bool
+  char:
+    notNull: string
+    nullable: optional string
+  date:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  datetime:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  datetime2:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  datetimeoffset:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  decimal:
+    notNull: string
+    nullable: optional string
+  float:
+    notNull: double
+    nullable: optional double
+  geography:
+    notNull: string
+    nullable: optional string
+  geometry:
+    notNull: string
+    nullable: optional string
+  image:
+    notNull: bytes
+    nullable: optional bytes
+  int:
+    notNull: int32
+    nullable: optional int32
+  money:
+    notNull: string
+    nullable: optional string
+  nchar:
+    notNull: string
+    nullable: optional string
+  ntext:
+    notNull: string
+    nullable: optional string
+  numeric:
+    notNull: string
+    nullable: optional string
+  nvarchar:
+    notNull: string
+    nullable: optional string
+  real:
+    notNull: float
+    nullable: optional float
+  smalldatetime:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  smallint:
+    notNull: int32
+    nullable: optional int32
+  smallmoney:
+    notNull: string
+    nullable: optional string
+  text:
+    notNull: string
+    nullable: optional string
+  time:
+    notNull: string
+    nullable: optional string
+  timestamp:
+    notNull: bytes
+    nullable: optional bytes
+  tinyint:
+    notNull: int32
+    nullable: optional int32
+  uniqueidentifier:
+    notNull: string
+    nullable: optional string
+  varbinary:
+    notNull: bytes
+    nullable: optional bytes
+  varchar:
+    notNull: string
+    nullable: optional string
+  xml:
+    notNull: string
+    nullable: optional string
+  # PostgreSQL type names (the others, such as text, varchar, date and numeric, are shared)
+  int2:
+    notNull: int32
+    nullable: optional int32
+  int4:
+    notNull: int32
+    nullable: optional int32
+  int8:
+    notNull: int64
+    nullable: optional int64
+  float4:
+    notNull: float
+    nullable: optional float
+  float8:
+    notNull: double
+    nullable: optional double
+  bool:
+    notNull: bool
+    nullable: optional bool
+  bpchar:
+    notNull: string
+    nullable: optional string
+  timestamptz:
+    notNull: google.protobuf.Timestamp
+    nullable: optional google.protobuf.Timestamp
+  timetz:
+    notNull: string
+    nullable: optional string
+  uuid:
+    notNull: string
+    nullable: optional string
+  bytea:
+    notNull: bytes
+    nullable: optional bytes
+  json:
+    notNull: string
+    nullable: optional string
+  jsonb:
+    notNull: string
+    nullable: optional string

@@ -79,7 +79,7 @@ datatypes:
     nullableAlternative: Date # DateTime
   datetime: 
     notNull: Date
-    nullable: DateTimeOffset
+    nullable: Date
     nullableAlternative: Date # DateTime
   datetime2: 
     notNull: Date
@@ -94,8 +94,8 @@ datatypes:
     nullable: number
     nullableAlternative: number # number
   float: 
-    notNull: string
-    nullable: string
+    notNull: number
+    nullable: number
     nullableAlternative: number # number
   geography: 
     notNull: string
@@ -138,8 +138,8 @@ datatypes:
     nullable: number
     nullableAlternative: number # number
   smalldatetime: 
-    notNull: string
-    nullable: string
+    notNull: Date
+    nullable: Date
     nullableAlternative: number # number
   smallint: 
     notNull: number
@@ -170,8 +170,8 @@ datatypes:
     nullable: string
     nullableAlternative: string # Guid
   varbinary: 
-    notNull: Byte[]
-    nullable: Byte[]
+    notNull: Uint8Array
+    nullable: Uint8Array
     nullableAlternative: Byte[] # Byte[]
   varchar: 
     notNull: string

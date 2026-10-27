@@ -1,0 +1,152 @@
+language: dart
+version: 3.0
+
+short: Language definition for Dart
+description: |
+  Dart types for database columns. Nullable types use the null safety suffix (T?).
+
+  Dart has no decimal type in the core libraries, so decimal, numeric and money are
+  double, which can round amounts. Change them to String, or to the type from a
+  decimal package, if you need exact values.
+
+  Uint8List is in dart:typed_data, so add that import to generated files that use it.
+  Dates and times are DateTime. The SQL Server time type is a String.
+
+datatypes:
+  # SQL Server type names
+  string:
+    notNull: String
+    nullable: String?
+  bigint:
+    notNull: int
+    nullable: int?
+  binary:
+    notNull: Uint8List
+    nullable: Uint8List?
+  bit:
+    notNull: bool
+    nullable: bool?
+  char:
+    notNull: String
+    nullable: String?
+  date:
+    notNull: DateTime
+    nullable: DateTime?
+  datetime:
+    notNull: DateTime
+    nullable: DateTime?
+  datetime2:
+    notNull: DateTime
+    nullable: DateTime?
+  datetimeoffset:
+    notNull: DateTime
+    nullable: DateTime?
+  decimal:
+    notNull: double
+    nullable: double?
+  float:
+    notNull: double
+    nullable: double?
+  geography:
+    notNull: String
+    nullable: String?
+  geometry:
+    notNull: String
+    nullable: String?
+  image:
+    notNull: Uint8List
+    nullable: Uint8List?
+  int:
+    notNull: int
+    nullable: int?
+  money:
+    notNull: double
+    nullable: double?
+  nchar:
+    notNull: String
+    nullable: String?
+  ntext:
+    notNull: String
+    nullable: String?
+  numeric:
+    notNull: double
+    nullable: double?
+  nvarchar:
+    notNull: String
+    nullable: String?
+  real:
+    notNull: double
+    nullable: double?
+  smalldatetime:
+    notNull: DateTime
+    nullable: DateTime?
+  smallint:
+    notNull: int
+    nullable: int?
+  smallmoney:
+    notNull: double
+    nullable: double?
+  text:
+    notNull: String
+    nullable: String?
+  time:
+    notNull: String
+    nullable: String?
+  timestamp:
+    notNull: Uint8List
+    nullable: Uint8List?
+  tinyint:
+    notNull: int
+    nullable: int?
+  uniqueidentifier:
+    notNull: String
+    nullable: String?
+  varbinary:
+    notNull: Uint8List
+    nullable: Uint8List?
+  varchar:
+    notNull: String
+    nullable: String?
+  xml:
+    notNull: String
+    nullable: String?
+  # PostgreSQL type names (the others, such as text, varchar, date and numeric, are shared)
+  int2:
+    notNull: int
+    nullable: int?
+  int4:
+    notNull: int
+    nullable: int?
+  int8:
+    notNull: int
+    nullable: int?
+  float4:
+    notNull: double
+    nullable: double?
+  float8:
+    notNull: double
+    nullable: double?
+  bool:
+    notNull: bool
+    nullable: bool?
+  bpchar:
+    notNull: String
+    nullable: String?
+  timestamptz:
+    notNull: DateTime
+    nullable: DateTime?
+  timetz:
+    notNull: String
+    nullable: String?
+  uuid:
+    notNull: String
+    nullable: String?
+  bytea:
+    notNull: Uint8List
+    nullable: Uint8List?
+  json:
+    notNull: String
+    nullable: String?
+  jsonb:
+    notNull: String
+    nullable: String?

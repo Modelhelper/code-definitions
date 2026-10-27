@@ -40,105 +40,115 @@ description: |
 usesNamespace: false
 canInject: false
 
-datatypes: 
-  string: 
+datatypes:
+  # Only the Go standard library is used, so no extra imports are needed.
+  # decimal, numeric and money map to float64, which can round money values.
+  # Change them to string or a decimal package if you need exact amounts.
+  string:
     notNull: string
-    nullable: sql.NullString    
+    nullable: sql.NullString
     defaultValue: ""
-    notnullValue: ''
-  bigint: 
-    notNull: Int64
+  bigint:
+    notNull: int64
     nullable: sql.NullInt64
     defaultValue: 0
-    notnullValue: 0
-  binary: 
-    notNull: string
-    nullable: string
-  bit: 
+  binary:
+    notNull: "[]byte"
+    nullable: "[]byte"
+  bit:
     notNull: bool
     nullable: sql.NullBool
     defaultValue: false
-  char: 
-    notNull: char
-    nullable: sql.NullChar    
-  date: 
-    notNull: time.Time
-    nullable: sql.NullTime    
-  datetime: 
-    notNull: time.Time
-    nullable: sql.NullTime    
-  datetime2: 
-    notNull: time.Time
-    nullable: sql.NullTime    
-  datetimeoffset: 
-    notNull: time.Time
-    nullable: sql.NullTime    
-  decimal: 
-    notNull: decimal
-    nullable: sql.NullDecimal
-  float: 
-    notNull: float
-    nullable: sql.NullFloat    
-  geography: 
+  char:
     notNull: string
-    nullable: string    
-  geometry: 
+    nullable: sql.NullString
+  date:
+    notNull: time.Time
+    nullable: sql.NullTime
+  datetime:
+    notNull: time.Time
+    nullable: sql.NullTime
+  datetime2:
+    notNull: time.Time
+    nullable: sql.NullTime
+  datetimeoffset:
+    notNull: time.Time
+    nullable: sql.NullTime
+  decimal:
+    notNull: float64
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  float:
+    notNull: float64
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  geography:
     notNull: string
-    nullable: string    
-  image: 
+    nullable: sql.NullString
+  geometry:
     notNull: string
-    nullable: string    
-  int: 
+    nullable: sql.NullString
+  image:
+    notNull: "[]byte"
+    nullable: "[]byte"
+  int:
     notNull: int
-    nullable: sql.NullInt32    
-  money: 
-    notNull: decimal
-    nullable: sql.NullDecimal    
-  nchar: 
+    nullable: sql.NullInt32
+    defaultValue: 0
+  money:
+    notNull: float64
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  nchar:
     notNull: string
-    nullable: sql.NullString    
-  ntext: 
+    nullable: sql.NullString
+  ntext:
     notNull: string
-    nullable: sql.NullString    
-  numeric: 
-    notNull: decimal
-    nullable: sql.NullDecimal    
-  nvarchar: 
+    nullable: sql.NullString
+  numeric:
+    notNull: float64
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  nvarchar:
     notNull: string
-    nullable: sql.NullString     
-  real: 
-    notNull: decimal
-    nullable: decimal?    
-  smalldatetime: 
+    nullable: sql.NullString
+  real:
+    notNull: float32
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  smalldatetime:
     notNull: time.Time
-    nullable: sql.NullTime    
-  smallint: 
-    notNull: Int8
-    nullable: sql.NullInt8
-  smallmoney: 
+    nullable: sql.NullTime
+  smallint:
+    notNull: int16
+    nullable: sql.NullInt16
+    defaultValue: 0
+  smallmoney:
+    notNull: float64
+    nullable: sql.NullFloat64
+    defaultValue: 0
+  text:
     notNull: string
-    nullable: string    
-  text: 
-    notNull: string
-    nullable: sql.NullString     
-  time: 
+    nullable: sql.NullString
+  time:
     notNull: time.Time
-    nullable: sql.NullTime    
-  timestamp: 
+    nullable: sql.NullTime
+  timestamp:
+    notNull: "[]byte"
+    nullable: "[]byte"
+  tinyint:
+    notNull: uint8
+    nullable: sql.NullByte
+    defaultValue: 0
+  uniqueidentifier:
     notNull: string
-    nullable: string    
-  tinyint: 
-    notNull: Int16
-    nullable: Int16?    
-  uniqueidentifier: 
+    nullable: sql.NullString
+  varbinary:
+    notNull: "[]byte"
+    nullable: "[]byte"
+  varchar:
     notNull: string
-    nullable: sql.NullString   
-  varbinary: 
-    notNull: Byte[]
-    nullable: Byte[]    
-  varchar: 
+    nullable: sql.NullString
+  xml:
     notNull: string
-    nullable: sql.NullString     
-  xml: 
-    notNull: string
-    nullable: sql.NullString    
+    nullable: sql.NullString

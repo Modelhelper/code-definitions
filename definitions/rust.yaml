@@ -1,0 +1,156 @@
+language: rust
+version: 3.0
+
+short: Language definition for Rust
+description: |
+  Rust types for database columns. Nullable columns are Option<T>.
+
+  Rust's standard library has no date, decimal, uuid or json types, so these
+  mappings use the crates that sqlx and most database code in Rust use:
+
+    chrono        date and time types
+    rust_decimal  decimal, numeric and money (exact, unlike f64)
+    uuid          uniqueidentifier and uuid
+    serde_json    json and jsonb
+
+  Add the ones you use to Cargo.toml. To avoid a crate, change the mapping,
+  for example decimal to f64 or uuid to String.
+
+datatypes:
+  # SQL Server type names
+  string:
+    notNull: String
+    nullable: Option<String>
+  bigint:
+    notNull: i64
+    nullable: Option<i64>
+  binary:
+    notNull: Vec<u8>
+    nullable: Option<Vec<u8>>
+  bit:
+    notNull: bool
+    nullable: Option<bool>
+  char:
+    notNull: String
+    nullable: Option<String>
+  date:
+    notNull: chrono::NaiveDate
+    nullable: Option<chrono::NaiveDate>
+  datetime:
+    notNull: chrono::NaiveDateTime
+    nullable: Option<chrono::NaiveDateTime>
+  datetime2:
+    notNull: chrono::NaiveDateTime
+    nullable: Option<chrono::NaiveDateTime>
+  datetimeoffset:
+    notNull: chrono::DateTime<chrono::Utc>
+    nullable: Option<chrono::DateTime<chrono::Utc>>
+  decimal:
+    notNull: rust_decimal::Decimal
+    nullable: Option<rust_decimal::Decimal>
+  float:
+    notNull: f64
+    nullable: Option<f64>
+  geography:
+    notNull: String
+    nullable: Option<String>
+  geometry:
+    notNull: String
+    nullable: Option<String>
+  image:
+    notNull: Vec<u8>
+    nullable: Option<Vec<u8>>
+  int:
+    notNull: i32
+    nullable: Option<i32>
+  money:
+    notNull: rust_decimal::Decimal
+    nullable: Option<rust_decimal::Decimal>
+  nchar:
+    notNull: String
+    nullable: Option<String>
+  ntext:
+    notNull: String
+    nullable: Option<String>
+  numeric:
+    notNull: rust_decimal::Decimal
+    nullable: Option<rust_decimal::Decimal>
+  nvarchar:
+    notNull: String
+    nullable: Option<String>
+  real:
+    notNull: f32
+    nullable: Option<f32>
+  smalldatetime:
+    notNull: chrono::NaiveDateTime
+    nullable: Option<chrono::NaiveDateTime>
+  smallint:
+    notNull: i16
+    nullable: Option<i16>
+  smallmoney:
+    notNull: rust_decimal::Decimal
+    nullable: Option<rust_decimal::Decimal>
+  text:
+    notNull: String
+    nullable: Option<String>
+  time:
+    notNull: chrono::NaiveTime
+    nullable: Option<chrono::NaiveTime>
+  timestamp:
+    notNull: Vec<u8>
+    nullable: Option<Vec<u8>>
+  tinyint:
+    notNull: u8
+    nullable: Option<u8>
+  uniqueidentifier:
+    notNull: uuid::Uuid
+    nullable: Option<uuid::Uuid>
+  varbinary:
+    notNull: Vec<u8>
+    nullable: Option<Vec<u8>>
+  varchar:
+    notNull: String
+    nullable: Option<String>
+  xml:
+    notNull: String
+    nullable: Option<String>
+  # PostgreSQL type names (the others, such as text, varchar, date and numeric, are shared)
+  int2:
+    notNull: i16
+    nullable: Option<i16>
+  int4:
+    notNull: i32
+    nullable: Option<i32>
+  int8:
+    notNull: i64
+    nullable: Option<i64>
+  float4:
+    notNull: f32
+    nullable: Option<f32>
+  float8:
+    notNull: f64
+    nullable: Option<f64>
+  bool:
+    notNull: bool
+    nullable: Option<bool>
+  bpchar:
+    notNull: String
+    nullable: Option<String>
+  timestamptz:
+    notNull: chrono::DateTime<chrono::Utc>
+    nullable: Option<chrono::DateTime<chrono::Utc>>
+  timetz:
+    notNull: chrono::NaiveTime
+    nullable: Option<chrono::NaiveTime>
+  uuid:
+    notNull: uuid::Uuid
+    nullable: Option<uuid::Uuid>
+  bytea:
+    notNull: Vec<u8>
+    nullable: Option<Vec<u8>>
+  json:
+    notNull: serde_json::Value
+    nullable: Option<serde_json::Value>
+  jsonb:
+    notNull: serde_json::Value
+    nullable: Option<serde_json::Value>
